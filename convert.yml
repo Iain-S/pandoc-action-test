@@ -1,0 +1,18 @@
+
+name: Convert from Markdown to PDF
+
+on: push
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+      - run: echo "$GITHUB_WORKSPACE"
+      - run: echo "foo" > input.txt # create an example file
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: >- # allows you to break string into multiple lines
+            --standalone
+            --output=index.html
+            input.txt
