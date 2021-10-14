@@ -14,5 +14,5 @@ jobs:
         with:
           args: >- # allows you to break string into multiple lines
             --standalone
-            --output=index.pdf
+            --output=index.html
             input.txt
