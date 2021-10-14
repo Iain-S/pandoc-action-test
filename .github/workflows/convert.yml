@@ -7,12 +7,14 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: pwd
       - run: echo "$GITHUB_WORKSPACE"
-      - run: echo "foo" > input.txt # create an example file
+      - run: ls -lah
+      # - run: echo "foo" > input.txt # create an example file
       - uses: docker://pandoc/core:2.9
         with:
           args: >- # allows you to break string into multiple lines
             --standalone
             --output=index.html
-            input.txt
+            README.md
